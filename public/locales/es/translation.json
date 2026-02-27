@@ -42,5 +42,16 @@
   "searching": "Buscando...",
   "humidity": "Humedad",
   "wind": "Viento",
-  "loading_weather": "Cargando datos del clima..."
+  "loading_weather": "Cargando datos del clima...",
+  "use_camera": "Usar Cámara",
+  "capture_image": "Capturar Imagen",
+  "cancel": "Cancelar",
+  "microphone_permission_denied": "Permiso de micrófono denegado. Por favor, habilítalo en la configuración de tu navegador.",
+  "speech_recognition_error": "Error de reconocimiento de voz. Por favor, inténtalo de nuevo.",
+  "government_schemes": "Esquemas Gub",
+  "market": "Mercado",
+  "language_selection": "Selección de idioma",
+  "crop_cycle_assistant": "Asistente de ciclo de cultivo",
+  "crop_rotation_guide": "Guía de rotación de cultivos",
+  "weather_alerts": "Alertas meteorológicas"
 }

@@ -12,6 +12,12 @@ import ClimateDetector from './components/ClimateDetector';
 import DroughtAssistant from './components/DroughtAssistant';
 import VoiceAssistant from './components/VoiceAssistant';
 import PestDetector from './components/PestDetector';
+import GovernmentSchemes from './components/GovernmentSchemes';
+import Market from './components/Market';
+import Settings from './components/Settings';
+import CropCycleAssistant from './components/CropCycleAssistant';
+import WeatherAlerts from './components/WeatherAlerts';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function Dashboard() {
   return (
@@ -24,10 +30,10 @@ function Dashboard() {
   );
 }
 
-export default function App() {
+function AppContent() {
   return (
     <Router>
-      <div className="min-h-screen flex">
+      <div className="min-h-screen flex bg-gray-100 dark:bg-gray-900">
         <SideNav />
         <div className="flex-1 flex flex-col">
           <Header />
@@ -38,10 +44,23 @@ export default function App() {
             <Route path="/drought-assistant" element={<DroughtAssistant />} />
             <Route path="/climate-detector" element={<ClimateDetector />} />
             <Route path="/pest-detector" element={<PestDetector />} />
+            <Route path="/government-schemes" element={<GovernmentSchemes />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/crop-cycle-assistant" element={<CropCycleAssistant />} />
+            <Route path="/weather-alerts" element={<WeatherAlerts />} />
           </Routes>
         </div>
         <VoiceAssistant />
       </div>
     </Router>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }

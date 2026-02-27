@@ -42,5 +42,16 @@
   "searching": "Searching...",
   "humidity": "Humidity",
   "wind": "Wind",
-  "loading_weather": "Loading weather data..."
+  "loading_weather": "Loading weather data...",
+  "use_camera": "Use Camera",
+  "capture_image": "Capture Image",
+  "cancel": "Cancel",
+  "microphone_permission_denied": "Microphone permission denied. Please enable it in your browser settings.",
+  "speech_recognition_error": "Speech recognition error. Please try again.",
+  "government_schemes": "Govt Schemes",
+  "market": "Market",
+  "language_selection": "Language Selection",
+  "crop_cycle_assistant": "Crop Cycle Assistant",
+  "crop_rotation_guide": "Crop Rotation Guide",
+  "weather_alerts": "Weather Alerts"
 }

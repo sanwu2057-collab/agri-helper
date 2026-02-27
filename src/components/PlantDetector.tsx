@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { PlantIcon } from './icons';
@@ -7,12 +7,18 @@ import CameraModal from './CameraModal';
 import TranslationOption from './TranslationOption';
 
 export default function PlantDetector() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [image, setImage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [translatedResult, setTranslatedResult] = useState<string | null>(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
+
+  const speak = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = i18n.language;
+    speechSynthesis.speak(utterance);
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -28,13 +34,18 @@ export default function PlantDetector() {
     if (!image) return;
     setLoading(true);
     setResult(null);
+    setTranslatedResult(null); // Clear previous translation
     try {
       const { detectPlantDisease } = await import('../services/geminiService');
       const analysis = await detectPlantDisease(image);
-      setResult(analysis ?? 'Could not analyze the image.');
+      const finalResult = analysis ?? 'Could not analyze the image.';
+      setResult(finalResult);
+      speak(finalResult);
     } catch (error) {
       console.error('Error detecting plant:', error);
-      setResult('An error occurred while analyzing the image.');
+      const errorMessage = 'An error occurred while analyzing the image.';
+      setResult(errorMessage);
+      speak(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -44,6 +55,13 @@ export default function PlantDetector() {
     setImage(imageData);
     setIsCameraOpen(false);
   };
+
+  // Speak the translated result when it becomes available
+  useEffect(() => {
+    if (translatedResult) {
+      speak(translatedResult);
+    }
+  }, [translatedResult, i18n.language]);
 
   return (
     <div className="glassmorphism p-8">

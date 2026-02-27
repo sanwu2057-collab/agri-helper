@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, Leaf, Droplets, Sun, Bug, Settings, BarChart2, Zap } from 'lucide-react';
+import { Home, Leaf, Droplets, Sun, Bug, Settings, BarChart2, Zap, TrendingUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function SideNav() {
@@ -11,6 +11,10 @@ export default function SideNav() {
     { to: '/drought-assistant', text: t('drought_assistant'), icon: Droplets },
     { to: '/climate-detector', text: t('climate_detector'), icon: Sun },
     { to: '/pest-detector', text: t('pest_detector'), icon: Bug },
+    { to: '/government-schemes', text: t('government_schemes'), icon: BarChart2 },
+    { to: '/market', text: t('market'), icon: TrendingUp },
+    { to: '/crop-cycle-assistant', text: t('crop_cycle_assistant'), icon: Zap },
+    { to: '/weather-alerts', text: t('weather_alerts'), icon: Sun },
   ];
 
   return (
