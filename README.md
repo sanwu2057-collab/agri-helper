@@ -6,9 +6,7 @@ This repository contains everything you need to run the application locally or a
 
 Access the deployed app here:
 
-https://ais-dev-tc6w3fap62fyv4mkixiael-217190891087.asia-east1.run.app
-
----
+https://ai.studio/apps/271f0699-54ab-4ad7-b5b6-11e8cffac500
 
 ## 🖥 Run Locally
 
