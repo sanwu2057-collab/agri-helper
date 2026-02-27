@@ -37,6 +37,13 @@ export default function VoiceAssistant() {
     };
 
     setRecognition(recognitionInstance);
+
+    // Clear speech error after 5 seconds
+    const timer = setTimeout(() => {
+      setSpeechError(null);
+    }, 5000);
+
+    return () => clearTimeout(timer);
   }, [i18n.language]);
 
   const handleCommand = (command: string) => {
